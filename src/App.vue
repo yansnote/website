@@ -1,30 +1,30 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <main>
+    <header-comp />
+
+    <router-view/>
+  </main>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HeaderComp from '@/components/HeaderComp.vue'
 
-nav {
+export default {
+  components: {
+    HeaderComp
+  }
+}
+</script>
+
+<style>
+
+main {
+  width: 980px;
+  border: 2px solid #33342f;
+  border-radius: 2.5rem;
+  background: #FCF3E6;
+  margin: 30px auto;
   padding: 30px;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
