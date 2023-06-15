@@ -31,17 +31,19 @@ export default {
 
 body {
   color: var(--bold-color);
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Courier Prime', 'Courier New', Courier, monospace;
 }
 
 .main {
-  width: 980px;
+  max-width: 980px;
   border: 2px solid var(--bold-color);
   border-radius: 2.5rem;
   background: var(--base-color);
   margin: 30px auto;
-  padding: 30px;
+  padding: 30px 50px;
+
+  box-sizing: border-box;
 }
 
 </style>

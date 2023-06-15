@@ -13,7 +13,23 @@
       <img src="../assets/YanNaing.jpg" alt="Yan Naing">
     </div>
   </section>
+
+  <section class="hobbies">
+    <h3>Some of My Hobbies</h3>
+
+    <div class="hobby-body">
+      <chip-comp title="Testing" />
+    </div>
+  </section>
 </template>
+
+<script>
+import ChipComp from '@/components/ChipComp.vue'
+
+export default {
+  components: { ChipComp }
+}
+</script>
 
 <style lang="scss" scoped>
   .jumbotron {
@@ -44,4 +60,9 @@
       }
     }
   }
+
+  .hobbies {
+    margin-top: 80px;
+  }
 </style>
+ChipComp
