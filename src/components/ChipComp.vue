@@ -1,8 +1,11 @@
 <template>
   <div class="chip">
-    <div class="chip-main">
-      {{ title }}
-    </div>
+    <img
+      :src="icon"
+      :alt="title"
+      :style="{ background: color }"
+    >
+    <p v-text="title" />
   </div>
 </template>
 
@@ -29,9 +32,26 @@ export default {
 <style lang="scss" scoped>
 .chip {
   border: 2px solid var(--bold-color);
-  border-radius: 5px;
-  padding: 5px;
-  display: inline-block;
+  border-radius: 45em;
+  padding: 5px 15px 5px 5px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
   background: #ffffff;
+
+  img {
+    width: 28px;
+    height: 28px;
+    padding: 3px;
+    border: 2px solid var(--bold-color);
+    border-radius: 45em;
+    margin-right: 5px;
+  }
+
+  p {
+    display: inline-block;
+    margin: 0;
+    font-weight: 700;
+  }
 }
 </style>
