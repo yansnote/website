@@ -51,20 +51,20 @@
 import ChipComp from '@/components/ChipComp.vue'
 import TimelineComp from '@/components/TimelineComp.vue'
 
-import CodeIcon from '@/assets/xml.svg'
-import PhotographyIcon from '@/assets/camera-outline.svg'
-import CoffeeIcon from '@/assets/coffee-outline.svg'
-import WritingIcon from '@/assets/feather.svg'
-import MovieIcon from '@/assets/television-classic.svg'
-import GameIcon from '@/assets/gamepad-variant-outline.svg'
-import CraftIcon from '@/assets/hammer-screwdriver.svg'
-import TravelIcon from '@/assets/plane-car.svg'
-import ReadIcon from '@/assets/book-open-page-variant-outline.svg'
+import CodeIcon from '@/assets/hobbies/xml.svg'
+import PhotographyIcon from '@/assets/hobbies/camera-outline.svg'
+import CoffeeIcon from '@/assets/hobbies/coffee-outline.svg'
+import WritingIcon from '@/assets/hobbies/feather.svg'
+import MovieIcon from '@/assets/hobbies/television-classic.svg'
+import GameIcon from '@/assets/hobbies/gamepad-variant-outline.svg'
+import CraftIcon from '@/assets/hobbies/hammer-screwdriver.svg'
+import TravelIcon from '@/assets/hobbies/plane-car.svg'
+import ReadIcon from '@/assets/hobbies/book-open-page-variant-outline.svg'
 
-import LifeIcon from '@/assets/flag-checkered.svg'
-import EduIcon from '@/assets/school-outline.svg'
-import CareerIcon from '@/assets/account-tie-outline.svg'
-import MedalIcon from '@/assets/seal.svg'
+import LifeIcon from '@/assets/timeline/flag-checkered.svg'
+import EduIcon from '@/assets/timeline/school-outline.svg'
+import CareerIcon from '@/assets/timeline/account-tie-outline.svg'
+import MedalIcon from '@/assets/timeline/seal.svg'
 
 export default {
   components: {
