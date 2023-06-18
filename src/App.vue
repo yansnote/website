@@ -33,6 +33,10 @@ body {
   color: var(--bold-color);
   font-size: 18px;
   font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+
+  @media screen and (max-width: 720px) {
+    margin: 0;
+  }
 }
 
 .main {
@@ -42,8 +46,19 @@ body {
   background: var(--base-color);
   margin: 30px auto;
   padding: 30px 50px;
-
   box-sizing: border-box;
+
+  @media screen and (max-width: 920px) {
+    margin: auto;
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 720px) {
+    padding: 20px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
 }
 
 </style>
