@@ -214,7 +214,12 @@ export default {
 .jumbotron {
   margin-top: 120px;
   display: grid;
-  grid-template-columns: minmax(320px, 3fr) minmax(320px, 2fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  @media screen and (max-width: 720px) {
+    margin-top: 80px;
+    gap: 80px;
+  }
 
   .biography {
     .bio-pre {
@@ -230,7 +235,7 @@ export default {
   .face {
     text-align: center;
     img {
-      max-width: 75%;
+      max-width: 60%;
       margin: 0 auto;
       border-radius: 30px;
       border: 2px solid var(--bold-color);
