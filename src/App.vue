@@ -39,6 +39,12 @@ body {
   }
 }
 
+.bg-teal { background: var(--teal-color); }
+.bg-bold { background: var(--bold-color); }
+.bg-yellow { background: var(--yellow-color); }
+.bg-orange { background: var(--orange-color); }
+.bg-blue { background: var(--blue-color); }
+
 .main {
   max-width: 980px;
   border: 2px solid var(--bold-color);

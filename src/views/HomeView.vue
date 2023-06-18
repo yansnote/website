@@ -7,6 +7,16 @@
       <p>
         I am currently an assistant manager of a low-code automation team. I am also a freelance web developer, a husband and a father.
       </p>
+      <div class="social">
+        <a
+          v-for="(value, i) in socials"
+          :key="i"
+          :href="value.link"
+          target="_blank"
+        >
+          <img :src="value.icon" :class="value.background">
+        </a>
+      </div>
     </div>
 
     <div class="face">
@@ -51,6 +61,11 @@
 import ChipComp from '@/components/ChipComp.vue'
 import TimelineComp from '@/components/TimelineComp.vue'
 
+import GithubIcon from '@/assets/socials/github.svg'
+import LinkedinIcon from '@/assets/socials/linkedin.svg'
+import TwitterIcon from '@/assets/socials/twitter.svg'
+import FacebookIcon from '@/assets/socials/facebook.svg'
+
 import CodeIcon from '@/assets/hobbies/xml.svg'
 import PhotographyIcon from '@/assets/hobbies/camera-outline.svg'
 import CoffeeIcon from '@/assets/hobbies/coffee-outline.svg'
@@ -73,6 +88,28 @@ export default {
   },
   data: () => {
     return {
+      socials: [
+        {
+          icon: GithubIcon,
+          link: "https://github.com/Mr-Zer0",
+          background: "bg-blue"
+        },
+        {
+          icon: LinkedinIcon,
+          link: "https://www.linkedin.com/in/ynaing",
+          background: "bg-yellow"
+        },
+        {
+          icon: TwitterIcon,
+          link: "https://twitter.com/Mr_YanNaing",
+          background: "bg-teal"
+        },
+        {
+          icon: FacebookIcon,
+          link: "https://www.facebook.com/yn.zero",
+          background: "bg-orange"
+        }
+      ],
       hobbies: [
         {
           icon: CodeIcon,
@@ -229,6 +266,25 @@ export default {
     .bio-name {
       font-size: 3rem;
       margin: 0;
+    }
+    .social {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+
+      a {
+        img {
+          width: 32px;
+          padding: 4px;
+          border: 2px solid var(--bold-color);
+          border-radius: 5em;
+          box-shadow: 2px 2px 0 var(--bold-color); // rgba(51, 52, 47, 0.9)
+        }
+      }
+
+      @media screen and (max-width: 720px) {
+        justify-content: center;
+      }
     }
   }
 
