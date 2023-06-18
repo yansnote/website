@@ -256,6 +256,10 @@ export default {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
   }
 }
 

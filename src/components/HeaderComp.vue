@@ -14,7 +14,9 @@
         <li class="nav-portfolio">
           <router-link to="/portfolio">Portfolio</router-link>
         </li>
-        <li class="nav-blog"><a href="https://mhatsu.to/author/0/">Blog</a></li>
+        <li class="nav-blog">
+          <a href="https://mhatsu.to/author/0/" target="_blank">Blog</a>
+        </li>
       </nav>
     </div>
   </header>
