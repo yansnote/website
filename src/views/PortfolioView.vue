@@ -4,11 +4,21 @@
   </main>
 </template>
 
+
+
 <style lang="scss" scoped>
 .portfolio {
+  height: calc(100vh - 180px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 720px) {
+    height: calc(100vh - 150px);
+  }
+
   h1 {
     text-align: center;
-    margin: 200px auto;
   }
 }
 </style>
