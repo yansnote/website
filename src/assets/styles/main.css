@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -7,4 +8,19 @@
   --yellow-color: #ffc348;
   --orange-color: #f26e55;
   --blue-color: #4780ba;
+}
+
+@theme {
+  --color-base: var(--base-color);
+  --color-bold: var(--bold-color);
+  --color-yn-teal: var(--teal-color);
+  --color-yn-yellow: var(--yellow-color);
+  --color-yn-orange: var(--orange-color);
+  --color-yn-blue: var(--blue-color);
+}
+
+/* Apply the font globally */
+body {
+  font-family: 'Courier Prime', monospace;
+  color: var(--bold-color);
 }

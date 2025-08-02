@@ -14,7 +14,7 @@
         </nav>
       </header>
 
-      <main class="p-4">
+      <main>
         <router-view />
       </main>
 
