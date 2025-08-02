@@ -34,7 +34,7 @@ const socials = [
 </script>
 
 <template>
-  <section class="w-full px-8 mt-8 flex justify-between items-start gap-3">
+  <div class="flex justify-between items-start gap-3">
     <div>
       <h3 class="text-xl font-bold">Hello! I am</h3>
       <h3 class="text-5xl font-bold">Yan Naing</h3>
@@ -58,5 +58,5 @@ const socials = [
     <figure class="w-1/2 max-w-3xs rounded-2xl overflow-hidden border-2 border-bold">
       <img :src="profileImage" alt="Yan Naing" class="w-full" />
     </figure>
-  </section>
+  </div>
 </template>
