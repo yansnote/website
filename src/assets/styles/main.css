@@ -23,4 +23,5 @@
 body {
   font-family: 'Courier Prime', monospace;
   color: var(--bold-color);
+  font-size: 16px;
 }

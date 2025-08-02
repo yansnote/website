@@ -6,6 +6,16 @@ import twitterIcon from '@/assets/images/icons/twitter.svg'
 import facebookIcon from '@/assets/images/icons/facebook.svg'
 import profileImage from '@/assets/images/YanNaing.jpg'
 
+import codingIcon from '@/assets/images/icons/coding.svg'
+import photographyIcon from '@/assets/images/icons/photographing.svg'
+import gamingIcon from '@/assets/images/icons/gaming.svg'
+import travelingIcon from '@/assets/images/icons/traveling.svg'
+import readingIcon from '@/assets/images/icons/reading.svg'
+import brewingIcon from '@/assets/images/icons/brewing.svg'
+import televisionIcon from '@/assets/images/icons/television.svg'
+import writingIcon from '@/assets/images/icons/writing.svg'
+import craftingIcon from '@/assets/images/icons/crafting.svg'
+
 const socials = [
   {
     name: 'GitHub',
@@ -32,12 +42,60 @@ const socials = [
     color: 'yn-orange',
   },
 ]
+
+const hobbies = [
+  {
+    name: 'Coding',
+    icon: codingIcon,
+    color: 'yn-teal',
+  },
+  {
+    name: 'Photography',
+    icon: photographyIcon,
+    color: 'yn-yellow',
+  },
+  {
+    name: 'Playing Games',
+    icon: gamingIcon,
+    color: 'yn-orange',
+  },
+  {
+    name: 'Watching Movies',
+    icon: televisionIcon,
+    color: 'yn-yellow',
+  },
+  {
+    name: 'Writing',
+    icon: writingIcon,
+    color: 'yn-blue',
+  },
+  {
+    name: 'Reading',
+    icon: readingIcon,
+    color: 'base',
+  },
+  {
+    name: 'Crafting',
+    icon: craftingIcon,
+    color: 'yn-teal',
+  },
+  {
+    name: 'Traveling',
+    icon: travelingIcon,
+    color: 'yn-orange',
+  },
+  {
+    name: 'Brewing',
+    icon: brewingIcon,
+    color: 'yn-yellow',
+  },
+]
 </script>
 
 <template>
-  <section class="w-full px-8 flex justify-between items-start gap-3">
+  <section class="w-full px-8 mt-8 flex justify-between items-start gap-3">
     <!-- This div ensures Tailwind generates the custom bg-yn-* classes -->
-    <div class="bg-yn-blue bg-yn-yellow bg-yn-teal bg-yn-orange hidden"></div>
+    <div class="bg-yn-blue bg-yn-yellow bg-yn-teal bg-yn-orange bg-base hidden"></div>
     <div>
       <h3 class="text-xl font-bold">Hello! I am</h3>
       <h3 class="text-5xl font-bold">Yan Naing</h3>
@@ -58,14 +116,25 @@ const socials = [
       </div>
     </div>
 
-    <figure class="w-1/2 max-w-3xs rounded-2xl overflow-hidden">
+    <figure class="w-1/2 max-w-3xs rounded-2xl overflow-hidden border-2 border-bold">
       <img :src="profileImage" alt="Yan Naing" class="w-full" />
     </figure>
   </section>
 
-  <section class="w-full px-8 mt-12">
+  <section class="w-full px-8 mt-18">
     <h3 class="text-2xl font-bold text-center">Some of My Hobbies</h3>
 
-    <div class="flex w-full justify-center items-center mt-4"></div>
+    <div class="flex flex-wrap gap-3 w-full md:w-3/5 mx-auto justify-center items-center mt-4">
+      <div
+        v-for="(item, i) in hobbies"
+        :key="i"
+        class="flex items-center gap-1 border-2 border-bold bg-white rounded-full p-1 pe-3"
+      >
+        <figure class="border-2 border-bold p-1 rounded-full" :class="'bg-' + item.color">
+          <img :src="item.icon" :alt="item.name" class="size-6" />
+        </figure>
+        <span class="font-bold">{{ item.name }}</span>
+      </div>
+    </div>
   </section>
 </template>
