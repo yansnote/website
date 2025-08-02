@@ -2,6 +2,8 @@
 
 <template>
   <div class="w-full md:py-3 md:px-5">
+    <div class="bg-yn-orange bg-yn-blue bg-yn-teal bg-yn-yellow bg-base hidden"></div>
+
     <div
       class="w-full max-w-4xl mx-auto md:border-2 border-(--bold-color) bg-(--base-color) rounded-4xl"
     >
@@ -17,10 +19,6 @@
       <main>
         <router-view />
       </main>
-
-      <footer class="bg-gray-100 p-4 text-center text-gray-600 mt-8">
-        <p>© 2025 YansNote - Public Area</p>
-      </footer>
     </div>
   </div>
 </template>
