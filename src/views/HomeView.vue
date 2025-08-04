@@ -50,16 +50,14 @@ const fetchData = async () => {
       name: item.name,
       link: item.link,
     }))
-
-    console.log('Info:', infos.value)
-    console.log('Socials:', socials.value)
-    console.log('Hobbies:', hobbies.value)
   } catch (error) {
     console.error('Error fetching data:', error)
   }
 }
 
 onMounted(() => {
+  console.info('Fetching data for HomeView...')
+
   fetchData()
 })
 </script>
