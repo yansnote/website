@@ -1,19 +1,20 @@
-import { 
-  collection, 
-  doc, 
-  addDoc, 
-  getDoc, 
-  getDocs, 
-  updateDoc, 
-  deleteDoc, 
-  query, 
-  where, 
-  orderBy, 
+import {
+  collection,
+  doc,
+  addDoc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+  query,
+  where,
+  orderBy,
   limit,
   onSnapshot,
+  serverTimestamp,
   type DocumentData,
   type QueryConstraint,
-  type Unsubscribe
+  type Unsubscribe,
 } from 'firebase/firestore'
 import { db } from './config'
 
@@ -23,6 +24,9 @@ export class FirestoreService {
    */
   static async addDocument(collectionName: string, data: DocumentData) {
     try {
+      data.createdAt = serverTimestamp()
+      data.updatedAt = serverTimestamp()
+
       const docRef = await addDoc(collection(db, collectionName), data)
       return docRef.id
     } catch (error) {
@@ -38,7 +42,7 @@ export class FirestoreService {
     try {
       const docRef = doc(db, collectionName, docId)
       const docSnap = await getDoc(docRef)
-      
+
       if (docSnap.exists()) {
         return { id: docSnap.id, ...docSnap.data() }
       } else {
@@ -58,10 +62,10 @@ export class FirestoreService {
       const collectionRef = collection(db, collectionName)
       const q = constraints.length > 0 ? query(collectionRef, ...constraints) : collectionRef
       const querySnapshot = await getDocs(q)
-      
-      return querySnapshot.docs.map(doc => ({
+
+      return querySnapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }))
     } catch (error) {
       console.error('Error getting collection:', error)
@@ -74,6 +78,8 @@ export class FirestoreService {
    */
   static async updateDocument(collectionName: string, docId: string, data: Partial<DocumentData>) {
     try {
+      data.updatedAt = serverTimestamp()
+
       const docRef = doc(db, collectionName, docId)
       await updateDoc(docRef, data)
       return true
@@ -101,43 +107,51 @@ export class FirestoreService {
    * Listen for real-time updates to a collection
    */
   static subscribeToCollection(
-    collectionName: string, 
+    collectionName: string,
     callback: (data: DocumentData[]) => void,
-    constraints: QueryConstraint[] = []
+    constraints: QueryConstraint[] = [],
   ): Unsubscribe {
     const collectionRef = collection(db, collectionName)
     const q = constraints.length > 0 ? query(collectionRef, ...constraints) : collectionRef
-    
-    return onSnapshot(q, (snapshot) => {
-      const data = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }))
-      callback(data)
-    }, (error) => {
-      console.error('Error in collection subscription:', error)
-    })
+
+    return onSnapshot(
+      q,
+      (snapshot) => {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        callback(data)
+      },
+      (error) => {
+        console.error('Error in collection subscription:', error)
+      },
+    )
   }
 
   /**
    * Listen for real-time updates to a document
    */
   static subscribeToDocument(
-    collectionName: string, 
-    docId: string, 
-    callback: (data: DocumentData | null) => void
+    collectionName: string,
+    docId: string,
+    callback: (data: DocumentData | null) => void,
   ): Unsubscribe {
     const docRef = doc(db, collectionName, docId)
-    
-    return onSnapshot(docRef, (docSnap) => {
-      if (docSnap.exists()) {
-        callback({ id: docSnap.id, ...docSnap.data() })
-      } else {
-        callback(null)
-      }
-    }, (error) => {
-      console.error('Error in document subscription:', error)
-    })
+
+    return onSnapshot(
+      docRef,
+      (docSnap) => {
+        if (docSnap.exists()) {
+          callback({ id: docSnap.id, ...docSnap.data() })
+        } else {
+          callback(null)
+        }
+      },
+      (error) => {
+        console.error('Error in document subscription:', error)
+      },
+    )
   }
 
   /**
