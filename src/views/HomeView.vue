@@ -2,9 +2,8 @@
 import { Timestamp } from 'firebase/firestore'
 import FirestoreService from '@/firebase/firestore'
 
-import HobbySection from '@/components/home/HobbySection.vue'
-
 import SocialItem from '@/components/home/SocialItem.vue'
+import HobbyItem from '@/components/home/HobbyItem.vue'
 import TimelineItem from '@/components/home/TimelineItem.vue'
 
 import profileImage from '@/assets/images/YanNaing.jpg'
@@ -87,7 +86,11 @@ onMounted(() => {
   </section>
 
   <section class="w-full px-8 mt-18">
-    <HobbySection />
+    <h3 class="text-2xl font-bold text-center">Some of My Hobbies</h3>
+
+    <div class="flex flex-wrap gap-3 w-full md:w-3/5 mx-auto justify-center items-center mt-4">
+      <HobbyItem v-for="(item, i) in hobbies" :key="i" :name="item.name" />
+    </div>
   </section>
 
   <section class="w-full px-8 my-18">
