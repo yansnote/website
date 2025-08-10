@@ -1,65 +1,20 @@
 <script setup lang="ts">
-import { Timestamp } from 'firebase/firestore'
-import FirestoreService from '@/firebase/firestore'
-
+import profileImage from '@/assets/images/YanNaing.jpg'
 import SocialItem from '@/components/home/SocialItem.vue'
 import HobbyItem from '@/components/home/HobbyItem.vue'
 import TimelineItem from '@/components/home/TimelineItem.vue'
 
-import profileImage from '@/assets/images/YanNaing.jpg'
+import { useInfoStore } from '@/stores/info'
+import { useTimelineStore } from '@/stores/timeline'
 
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 
-interface TimelineItemType {
-  id: string
-  type: string
-  description: string
-  date: Timestamp
-}
+const infoStore = useInfoStore()
+const timelineStore = useTimelineStore()
 
-interface InfoType {
-  id: string
-  type: string
-  name: string
-  link: string | null
-}
-
-const timeline = ref<TimelineItemType[]>([])
-const infos = ref<InfoType[]>([])
-
-const socials = computed(() => infos.value.filter((info) => info.type === 'social'))
-const hobbies = computed(() => infos.value.filter((info) => info.type === 'hobby'))
-
-const fetchData = async () => {
-  try {
-    const [timelineData, info] = await Promise.all([
-      FirestoreService.getCollection('timeline', [FirestoreService.orderBy('date', 'desc')]),
-      FirestoreService.getCollection('info'),
-    ])
-
-    timeline.value = (timelineData as TimelineItemType[]).map((item) => ({
-      id: item.id,
-      type: item.type,
-      description: item.description,
-      date: item.date,
-    }))
-
-    infos.value = (info as InfoType[]).map((item) => ({
-      id: item.id,
-      type: item.type,
-      name: item.name,
-      link: item.link,
-    }))
-  } catch (error) {
-    console.error('Error fetching data:', error)
-  }
-}
-
-onMounted(() => {
-  console.info('Fetching data for HomeView...')
-
-  fetchData()
-})
+const socials = computed(() => infoStore.socials)
+const hobbies = computed(() => infoStore.hobbies)
+const timeline = computed(() => timelineStore.timeline)
 </script>
 
 <template>
