@@ -10,7 +10,9 @@ export const useTimelineStore = defineStore('timeline', () => {
   async function fetchTimeline() {
     console.info('Fetching timeline data...')
     try {
-      const timelineData = await FirestoreService.getCollection('timeline')
+      const timelineData = await FirestoreService.getCollection('timeline', [
+        FirestoreService.orderBy('date', 'desc'),
+      ])
       timeline.value = (timelineData as TimelineType[]).map((item) => ({
         id: item.id,
         type: item.type,
