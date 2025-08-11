@@ -51,11 +51,12 @@ const timeline = computed(() => timelineStore.timeline)
 
     <div class="mt-4 space-y-3">
       <TimelineItem
-        v-for="item in timeline"
+        v-for="(item, i) in timeline"
         :key="item.id"
         :date="item.date"
         :description="item.description"
         :type="item.type"
+        :rail="i !== timeline.length - 1"
       />
     </div>
   </section>

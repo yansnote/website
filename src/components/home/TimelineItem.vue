@@ -6,11 +6,17 @@ import EducationIcon from '@/assets/images/icons/education.svg'
 import JobIcon from '@/assets/images/icons/job.svg'
 import { Timestamp } from 'firebase/firestore'
 
-const props = defineProps<{
-  date: Date | Timestamp
-  description: string
-  type: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    date: Date | Timestamp
+    description: string
+    type: string
+    rail?: boolean
+  }>(),
+  {
+    rail: true,
+  },
+)
 
 const color = computed(() => {
   switch (props.type) {
@@ -66,10 +72,13 @@ const eventDate = computed(() => {
 
 <template>
   <div class="flex items-start gap-4 relative">
-    <div class="rail"></div>
-    <figure class="p-1 border-2 border-bold rounded-full" :class="color">
-      <img :src="icon" alt="Timeline Icon" class="size-5 mx-auto" />
-    </figure>
+    <div v-if="rail" class="rail"></div>
+    <img
+      :src="icon"
+      alt="Timeline Icon"
+      class="size-8 p-1 border-2 border-bold rounded-full"
+      :class="color"
+    />
     <div class="border-2 border-bold rounded-2xl py-2 px-4 bg-white">
       <h4 class="text-sm text-gray-500 font-bold">{{ eventDate }}</h4>
       <p>{{ description }}</p>
