@@ -18,7 +18,7 @@ const timeline = computed(() => timelineStore.timeline)
 </script>
 
 <template>
-  <section class="w-full px-8 mt-8">
+  <section class="w-full px-5 md:px-8 mt-8">
     <div class="flex justify-between items-start gap-5">
       <div>
         <h3 class="text-xl font-bold">Hello! I am</h3>
@@ -38,7 +38,7 @@ const timeline = computed(() => timelineStore.timeline)
     </div>
   </section>
 
-  <section class="w-full px-8 mt-18">
+  <section class="w-full px-5 md:px-8 mt-18">
     <h3 class="text-2xl font-bold text-center">Some of My Hobbies</h3>
 
     <div class="flex flex-wrap gap-3 w-full md:w-3/5 mx-auto justify-center items-center mt-4">
@@ -46,7 +46,7 @@ const timeline = computed(() => timelineStore.timeline)
     </div>
   </section>
 
-  <section class="w-full px-8 my-18">
+  <section class="w-full px-5 md:px-8 py-18">
     <h3 class="text-2xl font-bold text-center">My Timeline and Life Events</h3>
 
     <div class="mt-4 space-y-3">

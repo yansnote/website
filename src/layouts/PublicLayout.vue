@@ -5,9 +5,9 @@
     <div class="bg-yn-orange bg-yn-blue bg-yn-teal bg-yn-yellow bg-base hidden"></div>
 
     <div
-      class="w-full max-w-4xl mx-auto md:border-2 border-(--bold-color) bg-(--base-color) rounded-4xl"
+      class="w-full max-w-4xl mx-auto md:border-2 border-(--bold-color) bg-(--base-color) md:rounded-4xl"
     >
-      <header class="flex justify-between items-center p-8">
+      <header class="flex justify-between items-center py-8 px-5 md:px-8">
         <router-link to="/" class="flex items-center size-12">
           <img src="/Logo.svg" alt="YansNote Logo" />
         </router-link>
